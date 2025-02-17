@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarot App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Controles globales: Idioma y Tema -->
+  <div id="global-controls">
+    <label for="language-select" id="language-label">Selecciona tu idioma:</label>
+    <select id="language-select">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+      <option value="pt">Português</option>
+    </select>
+    <button id="btn-theme-toggle">Modo Claro</button>
+  </div>
+
+  <!-- Pantalla de Bienvenida -->
+  <section id="welcome-screen" class="screen active">
+    <div class="welcome-container">
+      <h1 id="welcome-title">Bienvenido a Tarot App</h1>
+      <p id="welcome-message">
+        Este servicio es solo orientativo. La información mostrada no sustituye un asesoramiento profesional.
+      </p>
+      <form id="welcome-form">
+        <input type="text" id="username" placeholder="Ingresa tu nombre" required />
+        <button type="submit" id="enter-button">Entrar</button>
+      </form>
+      <!-- Enlaces a redes sociales (modifica los enlaces y usa tus iconos) -->
+      <div id="social-links"></div>
+    </div>
+  </section>
+
+  <!-- Pantalla de Menú -->
+  <section id="menu-screen" class="screen">
+    <div class="menu-container">
+      <h2 id="menu-greeting">Hola, <span id="display-username"></span></h2>
+      <p id="menu-prompt">Elige el tipo de tirada:</p>
+      <button id="btn-ptpf" class="menu-btn" data-reading="ptpf">Tirada Pasado, Presente y Futuro</button>
+      <button id="btn-cruz" class="menu-btn" data-reading="cruz">Tirada de Cruz Celta</button>
+      <button id="btn-history" class="menu-btn">Historial de tiradas</button>
+      <button id="exit-app" class="menu-btn exit-btn">Salir</button>
+    </div>
+  </section>
+
+  <!-- Pantalla de Lectura -->
+  <section id="reading-screen" class="screen">
+    <div class="reading-container">
+      <div class="reading-header">
+        <h2 id="reading-title"></h2>
+        <div class="reading-buttons">
+          <button id="btn-back-menu">Volver al menú</button>
+          <button id="btn-new-reading">Volver a Tirar</button>
+        </div>
+      </div>
+      <!-- Área de cartas -->
+      <div id="cards-container" class="cards-container"></div>
+      <!-- Panel de resultados -->
+      <div id="result-panel" class="result-panel"></div>
+      <!-- Control de Música Ambiental -->
+      <div class="music-control">
+        <audio id="ambient-music" loop>
+          <source src="ambient.mp3" type="audio/mpeg" />
+          Tu navegador no soporta audio.
+        </audio>
+        <button id="btn-music-toggle">Pausar Música</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pantalla de Historial -->
+  <section id="history-screen" class="screen">
+    <div class="history-container">
+      <h2 id="history-title">Historial de tiradas</h2>
+      <div id="history-list"></div>
+      <button id="btn-back-menu-history">Volver al menú</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
